@@ -38,7 +38,7 @@ const Inicio = () => {
                 cargando ?
                     <Loading />
                     :
-                    <div>
+                    <div className='containerRow'>
                         <Navbar />
                         <div className='containerFormularios'>
                             {

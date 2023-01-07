@@ -1,5 +1,9 @@
 @import '../../variables/colors.scss';
 
+.containerRow {
+    display: flex;
+}
+
 .containerFormularios {
     display: flex;
     flex-wrap: wrap;
@@ -7,6 +11,7 @@
     min-height: 100vh;
     align-items: flex-start;
     height: auto;
+    margin-left: 60px;
     width: 100%;
     background-color: $blanco;
 }
@@ -18,7 +23,7 @@
     height: 250px;
     background-color: $blanco;
     border: 1px solid rgb(240, 240, 240);
-    margin: 10px 80px;
+    margin: 10px 40px;
     border-radius: 5px;
     position: relative;
     cursor: pointer;
@@ -116,7 +121,7 @@
     justify-content: flex-start;
 }
 
-@media(max-width:500px) {
+@media(max-width:659px) {
     .labelNo {
         font-size: 20px;
     }
@@ -124,5 +129,16 @@
     .fotoSin {
         width: 100%;
         height: auto;
+    }
+}
+
+@media(max-width:550px) {
+    .containerFormularios {
+        margin-top: 90px;
+        margin-left: 0;
+    }
+
+    .containerRow {
+        flex-direction: column;
     }
 }

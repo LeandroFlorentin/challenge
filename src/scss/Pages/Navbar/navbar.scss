@@ -1,19 +1,40 @@
 @import '../../variables/colors.scss';
 
 .containerNavbar {
-    width: 100%;
-    height: 80px;
+    width: 130px;
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     background: $verdeClaroMedio;
+    position: relative;
+    position: fixed;
+    z-index: 1;
+}
+
+.containerLibro {
+    position: relative;
+    height: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.containerNavegar {
+    position: relative;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .btnInicio {
-    width: 50px;
-    height: 50px;
+    font-size: 16px;
+    color: $verdeOscuro;
     cursor: pointer;
-    margin-left: 10px;
+    text-align: start;
+    margin: 20px 0;
 }
 
 .libroNav {
@@ -28,9 +49,41 @@
     align-items: center;
 }
 
+.linea {
+    position: relative;
+    width: 100%;
+}
+
 .nuevo {
-    height: 50px;
-    width: 50px;
     cursor: pointer;
-    margin-right: 10px;
+    font-size: 16px;
+    color: $verdeOscuro;
+    text-align: start;
+    margin: 20px 0;
+}
+
+@media(max-width:550px) {
+    .linea {
+        display: none;
+    }
+
+    .containerNavbar {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: $verdeClaroMedio;
+    }
+
+    .containerNavegar {
+        position: relative;
+        height: 100%;
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
 }

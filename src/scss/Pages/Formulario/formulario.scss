@@ -95,3 +95,16 @@
     padding: 5px 10px;
     border: 1px solid red;
 }
+
+@media(max-width:650px) {
+    .containerFormulario {
+        justify-content: flex-end;
+    }
+}
+
+@media(max-width:550px) {
+    .containerFormulario {
+        margin-top: 80px;
+        justify-content: center;
+    }
+}

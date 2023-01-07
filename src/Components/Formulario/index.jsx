@@ -63,8 +63,7 @@ const Formulario = () => {
                 datos.email.length &&
                 datos.birth_date.length &&
                 datos.country_of_origin.length) {
-                navigate('/inicio')
-                dispatch(crearFormulario(id, envio, uno))
+                dispatch(crearFormulario(id, envio, uno)).then(() => navigate('/inicio'))
             }
         } catch (error) {
             console.log(error.message)
@@ -78,7 +77,7 @@ const Formulario = () => {
                     ?
                     <Loading />
                     :
-                    <>
+                    <div style={{ display: 'flex' }}>
                         <Navbar />
                         <div className='containerFormulario'>
                             <form onSubmit={subirFormulario} className='formularioCreacion'>
@@ -138,7 +137,7 @@ const Formulario = () => {
                                 }
                             </form>
                         </div >
-                    </>
+                    </div>
             }
         </>
     )
