@@ -14,7 +14,7 @@ const Formulario = () => {
         full_name: '',
         email: '',
         birth_date: '',
-        country_of_origin: '',
+        country_of_origin: undefined,
     })
     const [repetir, setRepetir] = useState(true)
 
@@ -54,6 +54,7 @@ const Formulario = () => {
             console.log(error.message)
         }
     }
+    console.log(datos)
     return (
         <>
             <Navbar />
@@ -65,7 +66,7 @@ const Formulario = () => {
                                 item.type === "select" ?
                                     <div key={ubi} className={item.name}>
                                         <label>{item.label}</label>
-                                        <select name={item.name} onChange={cambiarValor} value={datos[item.name]}>
+                                        <select name={item.name} onChange={cambiarValor} value={datos[item.name]} >
                                             {item.options?.map((option, ubi) => <option key={ubi}>{option.value}</option>)}
                                         </select>
                                     </div>
