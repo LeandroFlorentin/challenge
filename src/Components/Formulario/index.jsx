@@ -4,6 +4,7 @@ import { traerFormulario, traerUnFormulario, crearFormulario } from '../../redux
 import { useParams, useNavigate } from 'react-router-dom'
 import Navbar from '../NavBar'
 import Loading from '../Loading'
+import Notiflix from 'notiflix'
 
 const Formulario = () => {
     const navigate = useNavigate()
@@ -63,7 +64,31 @@ const Formulario = () => {
                 datos.email.length &&
                 datos.birth_date.length &&
                 datos.country_of_origin.length) {
-                dispatch(crearFormulario(id, envio, uno)).then(() => navigate('/inicio'))
+                dispatch(crearFormulario(id, envio, uno)).then(() => {
+                    Notiflix.Confirm.show(
+                        `${id ? 'Formulario actualizado' : 'Formulario creado'}`,
+                        '¿Desea volver al inicio?',
+                        'Si',
+                        'No',
+                        () => {
+                            navigate('/inicio')
+                        },
+                        () => {
+                            setDatos({
+                                full_name: '',
+                                email: '',
+                                birth_date: '',
+                                country_of_origin: '',
+                            })
+                            navigate('/formulario')
+                        }, {
+                        titleColor: '#347571',
+                        messageColor: '#347571',
+                        okButtonBackground: '#b8e28a',
+                        cancelButtonBackground: '#347571'
+                    }
+                    )
+                })
             }
         } catch (error) {
             console.log(error.message)
