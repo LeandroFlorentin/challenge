@@ -9,13 +9,13 @@ const Landing = () => {
         <div className='containerLanding'>
             <div className='containerLogo'>
                 <img src={Libro} alt='libro' className='logo' />
-                <h4 className='creando'>CREANDO<br />FORMULARIOS</h4>
+                <h4 className='creando'>CHALLENGE<br />GREYDIVE</h4>
             </div>
             <h2 className='texto'>Crea, visualiza y<br /> elimina tus formularios.</h2>
             <button
                 onClick={() => navigate('/inicio')}
                 className='botonIr'
-            >Crea tu primer formulario.</button>
+            >Visita los formularios.</button>
             <img src={Persona} alt='persona' className='persona' />
         </div>
     )

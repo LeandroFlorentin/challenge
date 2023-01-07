@@ -1,0 +1,159 @@
+@mixin transform-letra ($time, $x, $y, $tamaño) {
+    font-size: ($tamaño);
+    color: $verdeMuyClaro;
+    animation: letra ease-in infinite ($time);
+    position: absolute;
+    top: ($y);
+    left: ($x);
+}
+
+@keyframes letra {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.containerLoading {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(.180deg, $verdeOscuro 30%, $verdeMedio 80%);
+    position: relative;
+}
+
+.containerLoading div:nth-child(1) {
+    @include transform-letra(1s, 30%, 35%, 80px);
+}
+
+.containerLoading div:nth-child(2) {
+    @include transform-letra(1s, 35%, 35%, 80px);
+}
+
+.containerLoading div:nth-child(3) {
+    @include transform-letra(1s, 40%, 35%, 80px);
+}
+
+.containerLoading div:nth-child(4) {
+    @include transform-letra(1s, 45%, 35%, 80px);
+}
+
+.containerLoading div:nth-child(5) {
+    @include transform-letra(1s, 50%, 35%, 80px);
+}
+
+.containerLoading div:nth-child(6) {
+    @include transform-letra(1s, 55%, 35%, 80px);
+}
+
+.containerLoading div:nth-child(7) {
+    @include transform-letra(1s, 60%, 35%, 80px);
+}
+
+.containerLoading div:nth-child(8) {
+    @include transform-letra(1s, 65%, 35%, 80px);
+}
+
+@media(max-width:1024px) {
+    .containerLoading div:nth-child(1) {
+        @include transform-letra(1s, 30%, 35%, 60px);
+    }
+
+    .containerLoading div:nth-child(2) {
+        @include transform-letra(1s, 35%, 35%, 60px);
+    }
+
+    .containerLoading div:nth-child(3) {
+        @include transform-letra(1s, 40%, 35%, 60px);
+    }
+
+    .containerLoading div:nth-child(4) {
+        @include transform-letra(1s, 45%, 35%, 60px);
+    }
+
+    .containerLoading div:nth-child(5) {
+        @include transform-letra(1s, 50%, 35%, 60px);
+    }
+
+    .containerLoading div:nth-child(6) {
+        @include transform-letra(1s, 55%, 35%, 60px);
+    }
+
+    .containerLoading div:nth-child(7) {
+        @include transform-letra(1s, 60%, 35%, 60px);
+    }
+
+    .containerLoading div:nth-child(8) {
+        @include transform-letra(1s, 65%, 35%, 60px);
+    }
+}
+
+@media(max-width:768px) {
+    .containerLoading div:nth-child(1) {
+        @include transform-letra(1s, 30%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(2) {
+        @include transform-letra(1s, 35%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(3) {
+        @include transform-letra(1s, 40%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(4) {
+        @include transform-letra(1s, 45%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(5) {
+        @include transform-letra(1s, 50%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(6) {
+        @include transform-letra(1s, 55%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(7) {
+        @include transform-letra(1s, 60%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(8) {
+        @include transform-letra(1s, 65%, 35%, 40px);
+    }
+}
+
+@media(max-width:425px) {
+    .containerLoading div:nth-child(1) {
+        @include transform-letra(1s, 15%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(2) {
+        @include transform-letra(1s, 25%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(3) {
+        @include transform-letra(1s, 35%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(4) {
+        @include transform-letra(1s, 45%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(5) {
+        @include transform-letra(1s, 55%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(6) {
+        @include transform-letra(1s, 65%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(7) {
+        @include transform-letra(1s, 75%, 35%, 40px);
+    }
+
+    .containerLoading div:nth-child(8) {
+        @include transform-letra(1s, 85%, 35%, 40px);
+    }
+}

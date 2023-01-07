@@ -124,6 +124,20 @@
     .botonIr {
         top: 80%;
     }
+
+    @keyframes entrando3 {
+        0% {
+            filter: opacity(0);
+            top: 82%;
+            left: 12%;
+        }
+
+        100% {
+            filter: opacity(1);
+            top: 80%;
+            left: 10%;
+        }
+    }
 }
 
 @media(max-width:496px) {
