@@ -117,6 +117,7 @@ const Formulario = () => {
                                                 }>
                                                     <label>{item.label}</label>
                                                     <select name={item.name} onChange={cambiarValor} value={datos[item.name]}>
+                                                        <option>país</option>
                                                         {item.options?.map((option, ubi) => <option key={ubi}>{option.value}</option>)}
                                                     </select>
                                                 </div>
@@ -149,7 +150,8 @@ const Formulario = () => {
                                                             cursor: 'pointer',
                                                             width: '200px',
                                                             backgroundColor: '#fff',
-                                                            fontSize: '16px'
+                                                            fontSize: '16px',
+                                                            color: '#347571'
                                                         } : null}
                                                         onChange={cambiarValor}
                                                         name={item.name}

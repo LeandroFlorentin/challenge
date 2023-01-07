@@ -66,6 +66,7 @@ const Inicio = () => {
                                     :
                                     <div className='containerSin'>
                                         <img className='fotoSin' src={sinResultados} alt='sinResultados' />
+                                        <h4 className='creaUno' onClick={() => navigate('/formulario')}>Crea el primero</h4>
                                         <label className='labelNo'>No tiene formularios creados.</label>
                                     </div>
                             }
