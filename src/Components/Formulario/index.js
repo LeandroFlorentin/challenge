@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { traerFormulario, traerUnFormulario } from '../../redux/actions'
+import { traerFormulario, traerUnFormulario, crearFormulario } from '../../redux/actions'
 import { useParams, useNavigate } from 'react-router-dom'
-import db from '../../utils/firebase.js'
-import { collection, addDoc, query, setDoc, doc } from 'firebase/firestore'
+import Navbar from '../NavBar'
 
 const Formulario = () => {
     const navigate = useNavigate()
@@ -48,33 +47,59 @@ const Formulario = () => {
             hora: `${new Date().getHours()}:${new Date().getMinutes()}`,
             numero: `${Math.floor(Math.random() * (999999999 - 0 + 1) + 0)}`,
         }
-        const queryRef = collection(db, "formularios")
-        if (!id?.length) {
-            await addDoc(queryRef, envio)
-            navigate('/')
-        }
-        else {
-            const queryRef = collection(db, "formularios", uno.id)
-            await setDoc(queryRef, envio)
-            navigate('/')
+        navigate('/inicio')
+        try {
+            dispatch(crearFormulario(id, envio, uno))
+        } catch (error) {
+            console.log(error.message)
         }
     }
-
     return (
-        <div>
-            <form onSubmit={subirFormulario}>
-                {
-                    formulario.items?.map((item, ubi) => {
-                        return (
-                            <div key={ubi}>
-                                <label>{item.label}</label>
-                                <input type={item.type} onChange={cambiarValor} name={item.name} value={datos[item.name]} required={item.required} />
-                            </div>
-                        )
-                    })
-                }
-            </form>
-        </div>
+        <>
+            <Navbar />
+            <div className='containerFormulario'>
+                <form onSubmit={subirFormulario} className='formularioCreacion'>
+                    {
+                        formulario.items?.map((item, ubi) => {
+                            return (
+                                item.type === "select" ?
+                                    <div key={ubi} className={item.name}>
+                                        <label>{item.label}</label>
+                                        <select name={item.name} onChange={cambiarValor} value={datos[item.name]}>
+                                            {item.options?.map((option, ubi) => <option key={ubi}>{option.value}</option>)}
+                                        </select>
+                                    </div>
+                                    :
+                                    <div
+                                        key={ubi}
+                                        className='divInp'
+                                        style={item.type === "submit" || item.type === "checkbox" ? {
+                                            alignItems: 'center',
+                                            flexDirection: 'row',
+                                        } : null}
+                                    >
+                                        <label>{item.label === "Enviar" ? null : item.label}</label>
+                                        <input
+                                            placeholder={item.name}
+                                            type={item.type}
+                                            style={item.type === "submit" ? {
+                                                cursor: 'pointer',
+                                                width: '200px',
+                                                backgroundColor: '#fff',
+                                                fontSize: '16px'
+                                            } : null}
+                                            onChange={cambiarValor}
+                                            name={item.name}
+                                            value={datos[item.name]}
+                                            required={item.required}
+                                        />
+                                    </div>
+                            )
+                        })
+                    }
+                </form>
+            </div>
+        </>
     )
 }
 
