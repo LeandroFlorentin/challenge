@@ -1,0 +1,139 @@
+@import '../../variables/colors.scss';
+
+.containerLanding {
+    background: $verdeClaroMedio;
+    background: linear-gradient(180deg, $verdeClaroMedio 50%, $verdeMuyClaro 90%);
+    min-height: 100vh;
+    position: relative;
+}
+
+.containerLogo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    animation: entrando1 ease-in .8s;
+}
+
+@keyframes entrando1 {
+    0% {
+        filter: opacity(0);
+        top: 12%;
+        left: 12%;
+    }
+
+    100% {
+        filter: opacity(1);
+        top: 10%;
+        left: 10%;
+    }
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.creando {
+    color: $verdeOscuro;
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+.texto {
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    color: $verdeOscuro;
+    font-size: 60px;
+    animation: entrando2 ease-in .8s;
+}
+
+@keyframes entrando2 {
+    0% {
+        filter: opacity(0);
+        top: 32%;
+        left: 12%;
+    }
+
+    100% {
+        filter: opacity(1);
+        top: 30%;
+        left: 10%;
+    }
+}
+
+.botonIr {
+    padding: 12px 17px;
+    border: none;
+    border-radius: 50px;
+    position: absolute;
+    left: 10%;
+    color: $blanco;
+    top: 70%;
+    font-size: 15px;
+    background-color: $verdeMedio;
+    cursor: pointer;
+    animation: entrando3 ease-in .8s;
+}
+
+@keyframes entrando3 {
+    0% {
+        filter: opacity(0);
+        top: 72%;
+        left: 12%;
+    }
+
+    100% {
+        filter: opacity(1);
+        top: 70%;
+        left: 10%;
+    }
+}
+
+.persona {
+    width: 30%;
+    position: absolute;
+    top: 20%;
+    right: 20px;
+    animation: entrando4 ease-in .8s;
+}
+
+@keyframes entrando4 {
+    0% {
+        filter: opacity(0);
+        top: 22%;
+        right: 0;
+    }
+
+    100% {
+        filter: opacity(1);
+        top: 20%;
+        right: 20px;
+    }
+}
+
+@media(max-width:1024px) {
+    .persona {
+        display: none;
+    }
+}
+
+@media(max-width:745px) {
+    .botonIr {
+        top: 80%;
+    }
+}
+
+@media(max-width:496px) {
+    .texto {
+        font-size: 40px;
+    }
+}
+
+@media(max-width:325px) {
+    .texto {
+        font-size: 35px;
+    }
+}

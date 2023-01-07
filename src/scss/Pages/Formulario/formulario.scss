@@ -1,0 +1,84 @@
+@mixin flex {
+    display: flex;
+    flex-direction: column;
+    margin: 35px 40px;
+    text-align: center;
+    font-size: 16px;
+    color: $verdeOscuro;
+    font-weight: 500;
+}
+
+.containerFormulario {
+    display: flex;
+    width: 100%;
+    min-height: 82vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.formularioCreacion {
+    min-height: 85vh;
+    width: 450px;
+}
+
+.full_name {
+    @include flex;
+}
+
+.email {
+    @include flex;
+}
+
+.birth_date {
+    @include flex;
+}
+
+.country_of_origin {
+    @include flex;
+}
+
+.divInp {
+    @include flex;
+    justify-content: center;
+}
+
+.divInp input {
+    border: none;
+    border: 1px solid $verdeClaroMedio;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.divInp input:focus {
+    outline: none;
+}
+
+.divInp input::placeholder {
+    text-transform: uppercase;
+    color: $verdeOscuro;
+}
+
+.country_of_origin select {
+    border: 1px solid $verdeClaroMedio;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.country_of_origin select {
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.country_of_origin select:focus {
+    outline: none;
+}
+
+.terms_and_conditions {
+    margin: 8px 40px;
+    text-align: center;
+}
+
+.Enviar {
+    padding: 5px 10px;
+    border: 1px solid red;
+}

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import db from '../../utils/firebase.js'
-import { collection, getDocs, query, where } from 'firebase/firestore'
+import { collection, getDocs, query, where, addDoc, updateDoc, doc } from 'firebase/firestore'
 export const FORM = "FORM";
 export const FORMULARIOS = "FORMULARIOS";
 export const UNOSOLO = 'UNOSOLO';
@@ -11,7 +11,6 @@ export const traerFormulario = () => async dispatch => {
 }
 
 export const traerUnFormulario = (id) => async dispatch => {
-    console.log("FORMULARIO", id)
     const queryRef = query(collection(db, "formularios"), where('numero', '==', id))
     const response = await getDocs(queryRef)
     const unoSolo = response.docs?.map(doc => {
@@ -35,4 +34,22 @@ export const traerFormularioshechos = () => async dispatch => {
         return newProduct;
     })
     return dispatch({ type: FORMULARIOS, payload: arrayFormu })
+}
+
+export const crearFormulario = (id, envio, uno) => async () => {
+    if (!id?.length) {
+        try {
+            await addDoc(collection(db, "formularios"), envio)
+        }
+        catch (error) {
+            console.log(error.message)
+        }
+    }
+    else {
+        try {
+            await updateDoc(doc(db, 'formularios', uno.id), envio)
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
 }

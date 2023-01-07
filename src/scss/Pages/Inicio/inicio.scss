@@ -1,0 +1,128 @@
+@import '../../variables/colors.scss';
+
+.containerFormularios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: flex-start;
+    height: auto;
+    width: 100%;
+    background-color: $blanco;
+}
+
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    height: 250px;
+    background-color: $blanco;
+    border: 1px solid rgb(240, 240, 240);
+    margin: 10px 80px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    transition: .1s all ease-in;
+}
+
+.containerForm:hover {
+    transform: scale(1.05);
+}
+
+.cardArriba {
+    position: relative;
+    height: 80%;
+    width: 100%;
+}
+
+.cardAbajo {
+    position: relative;
+    height: 20%;
+    width: 100%;
+    background: $verdeClaroMedio;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.eliminar {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 0;
+    z-index: 1;
+    top: 0;
+    text-align: center;
+    cursor: pointer;
+    color: $verdeClaroMedio;
+    font-size: 14px;
+    border-top-right-radius: 5px;
+    font-weight: 700;
+    border: 1px solid $verdeClaroMedio;
+    background-color: transparent;
+}
+
+.fecha {
+    margin-left: 10px;
+    font-weight: 700;
+    color: $blanco;
+}
+
+.editar {
+    float: right;
+    margin-right: 10px;
+    padding: 4px 8px;
+    border: none;
+    background-color: $blanco;
+    border-radius: 5px;
+    color: $verdeOscuro;
+    cursor: pointer;
+}
+
+.nombre {
+    margin: 40px 5px 10px 5px;
+    color: $verdeOscuro;
+}
+
+.mail {
+    font-size: 13px;
+    margin: 10px 5px;
+    color: $verdeOscuro;
+}
+
+.pais {
+    margin: 10px 5px;
+    font-size: 13px;
+    color: $verdeOscuro;
+}
+
+.fotoSin {
+    height: 500px;
+}
+
+.labelNo {
+    font-size: 25px;
+    color: $verdeOscuro;
+    font-weight: 700;
+}
+
+.containerSin {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@media(max-width:500px) {
+    .labelNo {
+        font-size: 20px;
+    }
+
+    .fotoSin {
+        width: 100%;
+        height: auto;
+    }
+}
