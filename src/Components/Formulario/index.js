@@ -10,6 +10,11 @@ const Formulario = () => {
     const dispatch = useDispatch()
     const formulario = useSelector(state => state.formulario)
     const uno = useSelector(state => state.uno)
+    const [incompleto, setIncompleto] = useState({
+        full_name: '',
+        email: '',
+        birth_date: '',
+    })
     const [datos, setDatos] = useState({
         full_name: '',
         email: '',
@@ -37,6 +42,10 @@ const Formulario = () => {
             ...datos,
             [e.target.name]: e.target.value
         })
+        setIncompleto({
+            ...incompleto,
+            [e.target.name]: e.target.value
+        })
     }
 
     const subirFormulario = async (e) => {
@@ -47,13 +56,19 @@ const Formulario = () => {
             hora: `${new Date().getHours()}:${new Date().getMinutes()}`,
             numero: `${Math.floor(Math.random() * (999999999 - 0 + 1) + 0)}`,
         }
-        navigate('/inicio')
         try {
-            dispatch(crearFormulario(id, envio, uno))
+            if (datos.full_name.length &&
+                datos.email.length &&
+                datos.birth_date.length &&
+                datos.country_of_origin.length) {
+                navigate('/inicio')
+                dispatch(crearFormulario(id, envio, uno))
+            }
         } catch (error) {
             console.log(error.message)
         }
     }
+
     return (
         <>
             <Navbar />
@@ -63,7 +78,11 @@ const Formulario = () => {
                         formulario.items?.map((item, ubi) => {
                             return (
                                 item.type === "select" ?
-                                    <div key={ubi} className={item.name}>
+                                    <div key={ubi} className={!datos[item.name] ?
+                                        `${item.name} error`
+                                        :
+                                        `${item.name}`
+                                    }>
                                         <label>{item.label}</label>
                                         <select name={item.name} onChange={cambiarValor} value={datos[item.name]}>
                                             {item.options?.map((option, ubi) => <option key={ubi}>{option.value}</option>)}
@@ -72,7 +91,19 @@ const Formulario = () => {
                                     :
                                     <div
                                         key={ubi}
-                                        className='divInp'
+                                        className={
+                                            item.type === "submit"
+                                                ||
+                                                item.type === "checkbox"
+                                                ?
+                                                'divInp'
+                                                :
+                                                !datos[item.name]
+                                                    ?
+                                                    'divInp error'
+                                                    :
+                                                    'divInp'
+                                        }
                                         style={item.type === "submit" || item.type === "checkbox" ? {
                                             alignItems: 'center',
                                             flexDirection: 'row',
@@ -98,7 +129,7 @@ const Formulario = () => {
                         })
                     }
                 </form>
-            </div>
+            </div >
         </>
     )
 }

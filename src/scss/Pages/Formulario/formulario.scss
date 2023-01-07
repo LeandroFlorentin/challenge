@@ -21,25 +21,38 @@
     width: 450px;
 }
 
-.full_name {
-    @include flex;
-}
-
-.email {
-    @include flex;
-}
-
-.birth_date {
-    @include flex;
-}
-
 .country_of_origin {
     @include flex;
+    position: relative;
+    overflow: hidden;
 }
 
 .divInp {
     @include flex;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.error::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: red;
+    animation: entradaError ease-in 1s;
+}
+
+@keyframes entradaError {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
 }
 
 .divInp input {
